@@ -17,3 +17,5 @@ sequelize
   .authenticate()
   .then(() => console.log("Database connected."))
   .catch((err) => console.log("Unable to connect the database: ", err));
+
+export default sequelize;
