@@ -11,10 +11,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-// Read route
+// Post routes
 
 app.get("/posts", PostController.getAllPosts);
 app.post("/posts", PostController.createPost);
+app.put("/posts/:id", PostController.updatePost);
+app.delete("/posts/:id", PostController.deletePost);
 
 app.listen(PORT, console.log(`SERVER STARTED ON ${PORT}`));
 

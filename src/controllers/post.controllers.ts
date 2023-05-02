@@ -32,6 +32,47 @@ class PostController {
       console.log(err);
     }
   }
+
+  // Update
+  static async updatePost(req: Request, res: Response) {
+    const { id } = req.params;
+    const { title, imageurl, description } = req.body;
+
+    try {
+      const [updated] = await PostModel.update(
+        { title, imageurl, description },
+        { where: { id } }
+      );
+      if (updated) {
+        const updatedPost = await PostModel.findOne({ where: { id } });
+        res.status(200).json(updatedPost);
+      } else {
+        throw new Error("Post not found");
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        res.status(500).json({ error: error.message });
+      }
+    }
+  }
+
+  // Delete
+  static async deletePost(req: Request, res: Response) {
+    const { id } = req.params;
+    try {
+      const deleted = await PostModel.destroy({ where: { id } });
+      if (deleted) {
+        res.status(204).send("Post deleted");
+      } else {
+        throw new Error("Post not found");
+      }
+    } catch (err) {
+      if (err instanceof Error) {
+        res.status(500).json({ error: err.message });
+        console.log(err);
+      }
+    }
+  }
 }
 
 export default PostController;
