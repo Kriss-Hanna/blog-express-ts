@@ -18,6 +18,8 @@ app.post("/posts", PostController.createPost);
 app.put("/posts/:id", PostController.updatePost);
 app.delete("/posts/:id", PostController.deletePost);
 
-app.listen(PORT, console.log(`SERVER STARTED ON ${PORT}`));
+if (process.env.NODE_ENV !== "test") {
+  app.listen(PORT, console.log(`SERVER STARTED ON ${PORT}`));
+}
 
 export default app;
