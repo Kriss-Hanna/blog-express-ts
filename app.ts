@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 import "dotenv/config";
 import PostController from "./src/controllers/post.controllers";
+import ContactFormController from "./src/controllers/contactform.controllers";
 
 const PORT = 8000;
 
@@ -17,6 +18,9 @@ app.get("/posts", PostController.getAllPosts);
 app.post("/posts", PostController.createPost);
 app.put("/posts/:id", PostController.updatePost);
 app.delete("/posts/:id", PostController.deletePost);
+
+// Form routes
+app.post("/contact", ContactFormController.createPost);
 
 if (process.env.NODE_ENV !== "test") {
   app.listen(PORT, console.log(`SERVER STARTED ON ${PORT}`));

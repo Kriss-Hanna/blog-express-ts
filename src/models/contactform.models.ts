@@ -42,7 +42,7 @@ contactFormModel.init(
   },
   {
     sequelize,
-    tableName: "contact-form",
+    tableName: "contactform",
   }
 );
 
