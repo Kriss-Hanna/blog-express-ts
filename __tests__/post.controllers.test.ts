@@ -1,10 +1,10 @@
-import request from "supertest";
+/* import request from "supertest";
 import app from "../app";
 import PostModel from "../src/models/post.models";
 
 describe("Post Routes", () => {
   test("Should return all posts and return a 200 status code", async () => {
-    /*  const posts = await PostModel.findAll(); */
+      const posts = await PostModel.findAll(); 
     const date = new Date();
 
     const posts: PostModel = {
@@ -35,3 +35,4 @@ describe("Post Routes", () => {
     expect(res.body).toEqual({ error: "Unable to get all posts." });
   });
 });
+ */

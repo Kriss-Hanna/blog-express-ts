@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import PostModel from "../models/contactform.models";
+import PostModel from "../../models/contactform.models";
 const crypto = require("crypto");
 const uuid = crypto.randomUUID();
 
