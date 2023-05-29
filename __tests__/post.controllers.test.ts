@@ -1,3 +1,19 @@
+import app from "../app";
+import request from "supertest";
+
+describe("POST /posts", () => {
+  it("should create a post", async () => {
+    const post = {
+      id: "12154",
+      title: "a title",
+      imageurl: "an url image",
+      description: "a description",
+    };
+    const res = await request(app).post("/posts").send(post);
+    expect(res.status).toBe(201);
+  });
+});
+
 /* import request from "supertest";
 import app from "../app";
 import PostModel from "../src/models/post.models";
