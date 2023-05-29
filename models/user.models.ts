@@ -5,12 +5,14 @@ interface UsersAttributes {
   id: string;
   username: string;
   password: string;
+  email: string;
 }
 
 class UserModel extends Model<UsersAttributes> implements UsersAttributes {
   public id!: string;
   public username!: string;
   public password!: string;
+  public email!: string;
 }
 
 UserModel.init(
@@ -24,6 +26,10 @@ UserModel.init(
       allowNull: false,
     },
     password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
     },
