@@ -21,7 +21,8 @@ app.put("/posts/:id", PostController.updatePost);
 app.delete("/posts/:id", PostController.deletePost);
 
 // Form routes
-app.post("/contact", ContactFormController.createPost);
+app.post("/contact", ContactFormController.createMessage);
+app.get("/contact", ContactFormController.getAllMessages);
 
 // User routes
 app.post("/user", UserController.createUser);
